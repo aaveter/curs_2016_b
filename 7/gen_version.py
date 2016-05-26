@@ -17,3 +17,19 @@ def gen_operations():
         a, b = numbers
 
         yield a, b, operation
+
+
+def main():
+    def calc(a, b, operation):
+        if operation == '+':
+            return a + b
+        elif operation == '-':
+            return a - b
+        elif operation == '*':
+            return a * b
+        elif operation == '/':
+            return a / b
+
+    for a, b, operation in gen_operations():
+        print('Ответ: ', calc(a, b, operation))
+
