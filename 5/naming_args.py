@@ -49,7 +49,10 @@ func(c=20, a=30)
 
 
 
-def calc(a, b, operation="+"):
+def calc(a, b, operation="+", *args):
+    summa = sum(args)
+
+
     if operation == '+':
         return a + b
     elif operation == '-':
