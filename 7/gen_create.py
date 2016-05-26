@@ -78,6 +78,8 @@ def sites_gen():
 for site in sites_gen():
     print( site )
 
+
+
 from random import randint
 while True:
     sites = [1, 2, 3]

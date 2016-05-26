@@ -33,3 +33,5 @@ def main():
     for a, b, operation in gen_operations():
         print('Ответ: ', calc(a, b, operation))
 
+
+main()
