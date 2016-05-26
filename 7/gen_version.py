@@ -15,4 +15,5 @@ def gen_operations():
         numbers = [ int(i) for i in enter_1 ]
         operation = enter_2[0]
         a, b = numbers
-        print( 'Ответ: ', calc( a, b, operation ) )
+
+        yield a, b, operation
