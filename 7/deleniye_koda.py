@@ -14,13 +14,13 @@ def calc( a, b, operation ):
     elif operation == '/':
         return a/b
 
-while 1 == 1:
-    enter_1 = [ i for i in input('Введите два числа, или "exit" для выхода: ').split() ]
+while True:
+    enter_1 = input('Введите два числа, или "exit" для выхода: ').split()
 
     if 'exit' in enter_1:
         break
 
-    enter_2 = [ i for i in input( 'Введите операцию над числами, или "exit" для выхода: ' ).split() ]
+    enter_2 = input( 'Введите операцию над числами, или "exit" для выхода: ' ).split()
 
     if 'exit' in enter_2:
         break
