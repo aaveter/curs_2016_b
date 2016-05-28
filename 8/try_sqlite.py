@@ -29,7 +29,12 @@ with sqlite3.connect('try_slite.db') as con:
     #      print( a )
 
 
-    # r = con.execute("select * from people")
+    r = con.execute("select * from people")
+
+    #print(r.description)
+
+    print( r.fetchone() )
+
     # print( r )
 
     # Так можно получить курсор:
@@ -37,5 +42,27 @@ with sqlite3.connect('try_slite.db') as con:
     # cur.execute()
 
     # Выборка с условием
-    for a in con.execute("select * from people where age > ? and name like ?", (40, 'O%') ):
-        print( a )
+    # for a in con.execute("select * from people where age > ? and name like ?", (40, 'O%') ):
+    #     print( a )
+
+    # con.executescript('''
+    # create table tst_table (id int, name varchar(100), age int);
+    # create table tst_table2 (id int, name varchar(100), age int);
+    #
+    # insert into tst_table2 (id, name, age) values (2, 'Olga', 41);
+    #
+    # drop table tst_table;
+    # ''')
+    #
+    # cur = con.cursor()
+    # cur.execute()
+
+
+
+# 1. цвет
+# 2. пробег
+# 3. марка автомобиля
+# 4. номерной знак
+
+
+
