@@ -14,6 +14,7 @@ except FileNotFoundError:
     pass
 
 #print( 'NEW PEOPLE:', PEOPLE )
+budget = 0
 for man in PEOPLE:
     name = man['name']
     zp = man['money']
@@ -21,6 +22,9 @@ for man in PEOPLE:
         name,
         zp
     ))
+    budget += zp
+
+print( 'budget:', budget )
 
 def get_input():
     return input(u'''Введите информацию о человеке:
