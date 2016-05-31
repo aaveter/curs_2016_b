@@ -38,3 +38,12 @@ def three():
 if __name__=='__main__':
     print( calc(7, 3) )
     three()
+
+
+
+
+# print = logging(print)
+#
+# print('Hello!!!')
+# print('Hello!!!')
+# print('Hello!!!')
