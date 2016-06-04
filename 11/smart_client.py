@@ -1,5 +1,5 @@
 
-import socket
+import socket, os
 
 IP_PREFFIX = '192.168.7.'
 
@@ -23,10 +23,10 @@ def get_filepart(ip, filename, start):
         return False
     ln = int(answer.split(';')[1])
 
-    print( 'file exists ({} bytes), getting part...'.format(ln) )
-
     part_size = int(ln / 10)
     end = start + part_size
+
+    print( 'file exists ({} bytes), getting part {}:{}...'.format(ln, start, end) )
 
     if end > ln:
         end = ln
@@ -40,7 +40,10 @@ def get_filepart(ip, filename, start):
     # Читаем часть из сокета
     part = s.recv(end-start)
 
-    with open(filename, 'r+b') as f:
+    filename = filename.replace('.', '.out.')
+    flag = 'r+b' if os.path.exists(filename) else 'wb'
+
+    with open(filename, flag) as f:
 
         f.seek(start)
         f.write(part)
@@ -54,7 +57,7 @@ def get_filepart(ip, filename, start):
 def get_file(filename):
     start, end = 0, 0
 
-    for a in range(255):
+    for a in range(100, 255):
         ip = IP_PREFFIX + str(a)
         print('try ip:', ip)
 
