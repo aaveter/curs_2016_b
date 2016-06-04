@@ -52,7 +52,7 @@ def handle(conn):
     start, end = int(a), int(b)
 
     # Открываем файл и сдвигаемся на start
-    with open(filename, 'rb') as f:
+    with open(filename, 'r+b') as f:
 
         print('start sending...')
 
