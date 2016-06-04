@@ -9,7 +9,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.settimeout(3)
 
 # Соединяемся с сервером
-s.connect(("www.python.org", 80))
+s.connect(('localhost', 50007))# "www.python.org", 80))
 
 
 data = b'''GET / HTTP/1.1

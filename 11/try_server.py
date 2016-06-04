@@ -4,14 +4,23 @@ import socket
 
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
+
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+
+    # Резервируем адрес и порт в системе
     s.bind((HOST, PORT))
-    s.listen(1)
-    conn, addr = s.accept()
+
+    # Ждать соединений
+    s.listen(1) # одновременных соединений может быть не больше 1
+
+    # Принимаем соединение
+    conn, addr = s.accept() # Объект соедиени, адрес (откуда)
+
     with conn:
         print('Connected by', addr)
         while True:
             data = conn.recv(1024)
-            if not data: break
+            if not data:
+                break
             conn.sendall(data)
 
