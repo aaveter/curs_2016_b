@@ -23,7 +23,7 @@ def get_filepart(ip, filename, start):
         return False
     ln = int(answer.split(';')[1])
 
-    part_size = int(ln / 10)
+    part_size = int(ln / 6)
     end = start + part_size
 
     print( 'file exists ({} bytes), getting part {}:{}...'.format(ln, start, end) )
@@ -57,6 +57,7 @@ def get_filepart(ip, filename, start):
 def get_file(filename):
     start, end = 0, 0
 
+    i = 1
     for a in range(100, 255):
         ip = IP_PREFFIX + str(a)
         print('try ip:', ip)
@@ -66,10 +67,11 @@ def get_file(filename):
         ret = get_filepart(ip, filename, start)
         if not ret:
             if ret == None:
-                print('all file got')
+                print(i, 'all file got')
                 break
             continue
         start = ret
+        i += 1
 
 
 if __name__=='__main__':
