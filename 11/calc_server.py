@@ -1,4 +1,6 @@
 
+
+
 # Echo server program
 import socket
 
@@ -22,9 +24,15 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             while True:
 
                 data = conn.recv(1024)
+
+                ## посчитать
+                ##
+
                 print('getted:', data.decode('utf-8'))
                 if not data:
                     break
 
-                conn.sendall(data)
 
+                # отправить результат
+                #
+                conn.sendall(data)
