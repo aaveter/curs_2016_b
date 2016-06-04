@@ -46,6 +46,8 @@ def get_filepart(ip, filename, start):
         f.write(part)
 
     s.close()
+
+    print('part got')
     return end
 
 
@@ -54,6 +56,7 @@ def get_file(filename):
 
     for a in range(255):
         ip = IP_PREFFIX + str(a)
+        print('try ip:', ip)
 
         # Получаем часть. Если не знали размер файла, то получаем и
         # вычисляем следующий start.
@@ -68,4 +71,4 @@ def get_file(filename):
 
 if __name__=='__main__':
 
-    get_file(filename='data/')
+    get_file(filename='data/python.jpg')
