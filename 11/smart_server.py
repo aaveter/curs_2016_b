@@ -39,7 +39,8 @@ def handle(conn):
     # Принимаем имя файла и отвечаем, есть ли
 
     if os.path.exists(filename):
-        conn.sendall(b'exists')
+        size = os.path.getsize(filename) # Получаем размер файла
+        conn.sendall('exists;{}'.format(size).encode('utf-8'))
     else:
         conn.sendall(b'no')
         return False
