@@ -39,11 +39,14 @@ class Book:
             pages_count += book.pages_count
         return pages_count
 
+
+
 Book('Лев Толстой', 3000, 'Война и мир')
 Book('Александр Пушкин', 1000, 'Евгений Онегин')
 cheburashka = Book('Чебурашка', 300, 'Успенский')
 
 cheburashka.pages_count = 500 # изменилось кол-во страниц
+
 
 print( 'Всего страниц в Библиотеке:', cheburashka.real_books_pages_count() )
 
