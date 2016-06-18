@@ -8,6 +8,7 @@ class Book:
     title = None
     instances = []
 
+    # Конструктор
     def __init__(self, author, pages_count, title):
         self.author = author
         self.pages_count = pages_count
