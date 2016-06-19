@@ -7,7 +7,11 @@ USERS_FILENAME = 'users.json'
 
 class User:
 
-    _USERS = []
+    _USERS = [
+
+        ['root', '1234']
+
+    ]
 
     def __init__(self, login, password):
         self.login = login
@@ -23,6 +27,11 @@ class User:
 
         root = User(login, password)
         User._USERS.append(root)
+
+        User._save_users()
+
+    @staticmethod
+    def _save_users():
 
         # сохраняем объект в json
         json.dump(User._USERS, open(USERS_FILENAME, 'w'))
@@ -45,13 +54,15 @@ if __name__=='__main__':
 
     import os
 
-    if os.path.exists( USERS_FILENAME ):
-        User.load_users()
-    else:
-        User.create_root_user()
+    User._save_users()
 
-    user = User.login()
-    if user:
-        print('Hello!! You entered')
-    else:
-        print('Go out!!')
+    # if os.path.exists( USERS_FILENAME ):
+    #     User.load_users()
+    # else:
+    #     User.create_root_user()
+    #
+    # user = User.login()
+    # if user:
+    #     print('Hello!! You entered')
+    # else:
+    #     print('Go out!!')
