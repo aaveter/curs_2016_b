@@ -3,7 +3,6 @@ from PyQt5.QtWidgets import (QWidget, QApplication, QLineEdit,
                              QHBoxLayout, QPushButton, QMessageBox,
                              QTableWidget)
 
-
 class Table(QWidget):
 
 
